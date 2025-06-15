@@ -3,7 +3,7 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "trustcaptcha-python"
+name = "trustcaptcha"
 version = "0.0.1"
 description = "TrustCaptcha – Privacy-first CAPTCHA solution for Python. GDPR-compliant, bot protection made in Europe."
 readme = "README.md"
