@@ -1,0 +1,43 @@
+stages:
+  - test
+  - build
+  - publish
+  - publish-pypi
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y python3.10-venv
+  - python3 -m venv venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install build twine toml
+
+build_library:
+  stage: build
+  script:
+    - python update_version.py
+    - python -m build
+    - python -m unittest discover -s tests
+  artifacts:
+    paths:
+      - dist/*
+  tags:
+    - build
+
+publish_library:
+  stage: publish
+  script:
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  only:
+    - branches
+  tags:
+    - build
+
+publish_on_pypi:
+  stage: publish-pypi
+  script:
+    - TWINE_PASSWORD=${PYPI_PASSWORD} TWINE_USERNAME=__token__ python -m twine upload dist/*
+  only:
+    - tags
+  tags:
+    - build

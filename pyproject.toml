@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trustcaptcha-python"
+version = "0.0.1"
+description = "TrustCaptcha – Privacy-first CAPTCHA solution for Python. GDPR-compliant, bot protection made in Europe."
+readme = "README.md"
+authors = [{name = "TrustComponent", email = "mail@trustcomponent.com"}]
+license = { text = "Apache-2.0" }
+dependencies = [
+    "requests",
+    "numpy",
+]
+keywords = ["captcha", "bot-protection", "bot-detection", "gdpr", "privacy", "trustcaptcha", "made-in-europe"]
+scripts = { trustcaptcha = "trustcaptcha:main" }
+
+[project.urls]
+Homepage = "https://www.trustcomponent.com/en/products/captcha/integrations/python-captcha"
+Repository = "https://github.com/trustcomponent/trustcaptcha-python"
+
+[project.optional-dependencies]
+dev = ["pytest", "flake8"]
