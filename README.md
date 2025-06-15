@@ -20,7 +20,7 @@ Read the full [TrustCaptcha product overview](https://www.trustcomponent.com/en/
 
 ## Get started
 
-1. **Create an account:** [Sign up / sign in](https://id.trustcomponent.com/en/signup).
+1. **Create an account:** [sign up / sign in](https://id.trustcomponent.com/en/signup).
 2. **Choose a CAPTCHA:** pick an existing one or create a new one.
 3. **Embed the widget:** implement the TrustCaptcha widget into your website or app.
 4. **Validate result:** validate the CAPTCHA verification result in your backend.
@@ -57,7 +57,7 @@ if verification_result.verificationPassed is not True or verification_result.sco
 
 Congratulations — you have successfully validated the result of the CAPTCHA!
 
-**For detailed implementation instructions, [read the Python Integration Guide](https://www.trustcomponent.com/en/products/captcha/integrations/python-captcha).**
+**For detailed implementation instructions, [read the Python integration guide](https://www.trustcomponent.com/en/products/captcha/integrations/python-captcha).**
 
 
 ## Other pre-built integrations
@@ -71,7 +71,7 @@ TrustCaptcha ships ready-made integrations for popular stacks:
 [Discover all our pre-built Integrations](https://www.trustcomponent.com/en/products/captcha/integrations) on our website.
 
 
-## Get Support
+## Get support
 
 Questions? We will be happy to help!
 - Email: [mail@trustcomponent.com](mailto:mail@trustcomponent.com)
