@@ -49,7 +49,7 @@ except Exception as e:
 
 3. Act on the result
 ```python
-# Do something with the verification result
+# Act on the verification result
 if verification_result.verificationPassed is not True or verification_result.score > 0.5:
     print("Verification failed or bot score > 0.5 – possible automated request.")
 
