@@ -32,7 +32,7 @@ Need a walkthrough? See the [Python integration guide](https://www.trustcomponen
 
 1. Install the dependency
 ```bash
-pip install trustcaptcha-python
+pip install trustcaptcha
 ```
 
 2. Retrieve the verification result
