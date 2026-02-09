@@ -36,11 +36,7 @@ publish_library:
   stage: publish
   needs: ["build_library"]
   script:
-    - python -m twine upload \
-      --repository-url "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi" \
-      -u "gitlab-ci-token" \
-      -p "${CI_JOB_TOKEN}" \
-      dist/*
+    - python -m twine upload --repository-url "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi" -u "gitlab-ci-token" -p "${CI_JOB_TOKEN}" dist/*
   rules:
     - if: $CI_COMMIT_BRANCH && $CI_COMMIT_TAG == null
 
@@ -48,9 +44,6 @@ publish_on_pypi:
   stage: publish-pypi
   needs: ["build_library"]
   script:
-    - python -m twine upload \
-      -u "__token__" \
-      -p "${PYPI_PASSWORD}" \
-      dist/*
+    - python -m twine upload -u "__token__" -p "${PYPI_PASSWORD}" dist/*
   rules:
     - if: $CI_COMMIT_TAG
