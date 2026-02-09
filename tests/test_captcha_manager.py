@@ -1,7 +1,7 @@
 import unittest
 from uuid import UUID
 
-from src.trustcaptcha.captcha_manager import CaptchaManager, VerificationTokenInvalidException, \
+from trustcaptcha.captcha_manager import CaptchaManager, VerificationTokenInvalidException, \
     VerificationNotFoundException, SecretKeyInvalidException, VerificationNotFinishedException
 
 VERIFICATION_VALID = "eyJhcGlFbmRwb2ludCI6Imh0dHBzOi8vYXBpLnRydXN0Y29tcG9uZW50LmNvbSIsInZlcmlmaWNhdGlvbklkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiwiZW5jcnlwdGVkQWNjZXNzVG9rZW4iOiJ0b2tlbiJ9"
