@@ -4,40 +4,52 @@ from uuid import UUID
 
 @dataclass
 class VerificationResult:
-    captchaId: UUID
-    verificationId: UUID
+    captcha_id: UUID
+    verification_id: UUID
+    verification_passed: bool
     score: float
-    reason: str
-    mode: str
+    decision_type: str
+    decision_action: str
+    gateway_failover_active: bool
+    risk_scoring_enabled: bool
+    minimal_data_mode_enabled: bool
     origin: str
-    ipAddress: str
-    deviceFamily: str
-    operatingSystem: str
+    ip_address: str
+    country_code: str
+    device_family: str
+    operating_system: str
     browser: str
-    creationTimestamp: str
-    releaseTimestamp: str
-    retrievalTimestamp: str
-    verificationPassed: bool
+    verification_started_at: str
+    verification_finished_at: str
+    result_expires_at: str
+    result_first_fetched_at: str
+    result_last_fetched_at: str
 
     def to_json(self):
-        return json.loads(json.dumps(asdict(self), default=str))  # Konvertiert UUIDs zu Strings
+        return json.loads(json.dumps(asdict(self), default=str))
 
     @classmethod
     def from_json(cls, json_data):
         data = json.loads(json_data) if isinstance(json_data, str) else json_data
         return cls(
-            captchaId=UUID(data['captchaId']),
-            verificationId=UUID(data['verificationId']),
+            captcha_id=UUID(data['captchaId']),
+            verification_id=UUID(data['verificationId']),
+            verification_passed=data['verificationPassed'],
             score=data['score'],
-            reason=data['reason'],
-            mode=data['mode'],
+            decision_type=data['decisionType'],
+            decision_action=data['decisionAction'],
+            gateway_failover_active=data['gatewayFailoverActive'],
+            risk_scoring_enabled=data['riskScoringEnabled'],
+            minimal_data_mode_enabled=data['minimalDataModeEnabled'],
             origin=data['origin'],
-            ipAddress=data['ipAddress'],
-            deviceFamily=data['deviceFamily'],
-            operatingSystem=data['operatingSystem'],
+            ip_address=data['ipAddress'],
+            country_code=data['countryCode'],
+            device_family=data['deviceFamily'],
+            operating_system=data['operatingSystem'],
             browser=data['browser'],
-            creationTimestamp=data['creationTimestamp'],
-            releaseTimestamp=data['releaseTimestamp'],
-            retrievalTimestamp=data['retrievalTimestamp'],
-            verificationPassed=data['verificationPassed'],
+            verification_started_at=data['verificationStartedAt'],
+            verification_finished_at=data['verificationFinishedAt'],
+            result_expires_at=data['resultExpiresAt'],
+            result_first_fetched_at=data['resultFirstFetchedAt'],
+            result_last_fetched_at=data['resultLastFetchedAt'],
         )

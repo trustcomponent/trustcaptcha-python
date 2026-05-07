@@ -37,9 +37,12 @@ pip install trustcaptcha
 
 2. Retrieve the verification result
 ```python
+from trustcaptcha.trust_captcha import TrustCaptcha
+
 # Retrieving the verification result
 try:
-    verification_result = CaptchaManager.get_verification_result("<your_secret_key>", "<verification_token_from_your_client>")
+    trust_captcha = TrustCaptcha("<your_api_key>")
+    verification_result = trust_captcha.get_verification_result("<verification_token_from_your_client>")
 except Exception as e:
     # Fetch verification result failed - handle error
     print(f"Failed to fetch verification result: {e}")
@@ -50,7 +53,7 @@ except Exception as e:
 3. Act on the result
 ```python
 # Act on the verification result
-if verification_result.verificationPassed is not True or verification_result.score > 0.5:
+if verification_result.verification_passed is not True or verification_result.score > 0.5:
     print("Verification failed or bot score > 0.5 – possible automated request.")
 
 ```
