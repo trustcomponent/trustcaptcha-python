@@ -20,7 +20,7 @@ class TrustCaptcha:
                  proxy=None):
         if not api_key:
             raise ValueError("api_key must not be empty")
-        self._api_key = api_key
+        self._api_key = api_key.strip()
         self._api_host = api_host
         self._connect_timeout_s = connect_timeout_s
         self._read_timeout_s = read_timeout_s
@@ -128,7 +128,7 @@ class FailoverException(Exception):
 
 
 class ServerUnreachableException(FailoverException):
-    def __init__(self, message="Could not reach the TrustCaptcha server. This is a high-trust failover signal — your backend was unable to contact our servers."):
+    def __init__(self, message="Could not reach the TrustCaptcha server. Please check your network connection and consider implementing a failover mechanism."):
         super().__init__(message)
 
 
